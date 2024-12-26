@@ -1,0 +1,17 @@
+{
+  "name": "cv_v2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "css:watch": "npx tailwindcss -i ./src/input.css -o ./public/app.css --watch",
+    "css:build": "npx tailwindcss -i ./src/input.css -o ./public/app.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
