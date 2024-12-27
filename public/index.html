@@ -8,11 +8,69 @@
 </head>
 <body>
 
-    <header class="shadow mb-2">
-        Hello
-    </header>
+    <header class="min-h-screen relative bg-blue-400" data-controller="navbar">
+        <nav 
+          data-navbar-target="menu"            
+          class="text-black sticky top-0 z-10 bg-blue-800 shadow p-4">
+
+          <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo or Branding -->
+            <a href="/" class="group">
+                <img src="Icons/computer-tv-svgrepo-com.svg" class="h-6 w-6 group-hover:scale-110 group-hover:duration-300 group-hover:ease" alt="" />
+            </a>
+
+            <!-- Menu Items -->
+            <ul 
+                data-navbar-target="menuItems" 
+                class="hidden md:flex justify-between items-center gap-8">
+                <li><a href="#home" class="hover-underline-animation hocus:text-white active:text-white">Home</a> </li>
+                <li><a href="#portfolio" class="hover-underline-animation hocus:text-white active:text-white">Portfolio</a></li>
+                <li><a href="#about" class="hover-underline-animation hocus:text-white active:text-white">About</a></li>
+                <li><a href="#contact" class="hover-underline-animation hocus:text-white active:text-white">Contact</a></li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+                <button 
+                    data-action="navbar#toggleMenu" 
+                    class="md:hidden px-4 py-2 text-black bg-blue-200 rounded hover:bg-blue-400" aria-label="Menu open" title="Menu">
+                    <!-- Hamburger Icon -->
+                    <svg 
+                    data-navbar-target="hamburgerIcon"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    class="h-6 w-6 block" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                    <!-- Close Icon -->
+                    <svg 
+                    data-navbar-target="closeIcon"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    class="h-6 w-6 hidden" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+          </div>          
+        </nav>
       
+        <!-- Dropdown Menu for Mobile with Animation -->
+        <div 
+          data-navbar-target="dropdownMenu" 
+          class="hidden flex-col items-start bg-blue-800 shadow p-4 md:hidden transition-all duration-300 ease-in-out transform origin-top">
+          <a href="#home" class="block py-2 hover-underline-animation hocus:text-white active:text-white">Home</a>
+          <a href="#portfolio" class="block py-2 hover-underline-animation hocus:text-white active:text-white">Portfolio</a>
+          <a href="#about" class="block py-2 hover-underline-animation hocus:text-white active:text-white">About</a>
+          <a href="#contact" class="block py-2 hover-underline-animation hocus:text-white active:text-white">Contact</a>
+        </div>
+      </header>
       
+
     
+      
+    <script type="module" src="app.js"></script>
 </body>
 </html>

@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "css:watch": "npx tailwindcss -i ./src/input.css -o ./public/app.css --watch",
-    "css:build": "npx tailwindcss -i ./src/input.css -o ./public/app.css"
+    "css:watch": "npx tailwindcss -i ./src/CSS/app.css -o ./public/app.css --watch",
+    "css:build": "npx tailwindcss -i ./src/CSS/app.css -o ./public/app.css",
+    "js:watch": "esbuild ./src/JavaScript/app.js --bundle --outfile=./public/app.js --watch",
+    "js:build": "esbuild ./src/JavaScript/app.js --bundle --outfile=./public/app.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,10 @@
   "type": "commonjs",
   "description": "",
   "devDependencies": {
+    "esbuild": "0.24.2",
     "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2"
   }
 }
