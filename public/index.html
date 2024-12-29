@@ -8,7 +8,7 @@
     </head>
     <body>
         <header
-            class="relative min-h-screen bg-blue-400"
+            class="relative flex min-h-screen flex-col justify-between bg-blue-400 pb-8"
             data-controller="navbar"
         >
             <nav
@@ -134,7 +134,7 @@
                 >
             </div>
 
-            <div class="container mx-auto my-40" data-controller="hero">
+            <div class="container mx-auto mb-2 mt-40" data-controller="hero">
                 <div class="flex flex-col items-center justify-center">
                     <h1
                         class="motion-safe:typing-effect w-[21ch] overflow-hidden whitespace-nowrap border-r-4 border-solid border-r-orange-200 text-3xl font-semibold [text-shadow:_0px_4px_5px_#ffffff]"
@@ -175,6 +175,28 @@
                     </button>
                 </div>
             </div>
+
+            <button
+                class="group mx-auto flex h-8 w-8 rotate-90 items-center justify-center rounded-full border border-solid border-orange-600 duration-300 ease-out hocus:bg-blue-600 hocus:shadow-md hocus:shadow-white"
+                title="Scroll down"
+            >
+                <svg
+                    class="h-4 w-4 fill-black duration-300 ease-out group-hocus:fill-white motion-safe:animate-bounce"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M13.47 5.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H4a.75.75 0 0 1 0-1.5h14.19l-4.72-4.72a.75.75 0 0 1 0-1.06Z"
+                    />
+                </svg>
+
+                <span class="sr-only">Scroll down</span>
+            </button>
         </header>
 
         <script type="module" src="app.js"></script>
