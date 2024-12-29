@@ -2507,7 +2507,10 @@
             root: null,
             threshold: 0.9
           };
-          const observer = new IntersectionObserver(this.handleIntersect.bind(this), options);
+          const observer = new IntersectionObserver(
+            this.handleIntersect.bind(this),
+            options
+          );
           this.headingTargets.forEach((target) => observer.observe(target));
           this.subtitleTargets.forEach((target) => observer.observe(target));
         }
