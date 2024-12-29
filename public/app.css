@@ -647,6 +647,16 @@ video {
   margin-right: auto;
 }
 
+.my-40 {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .block {
   display: block;
 }
@@ -669,6 +679,10 @@ video {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-\[21ch\] {
+  width: 21ch;
 }
 
 .origin-top {
@@ -697,6 +711,10 @@ video {
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -709,8 +727,40 @@ video {
   gap: 2rem;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
 .rounded {
   border-radius: 0.25rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-r-4 {
+  border-right-width: 4px;
+}
+
+.border-solid {
+  border-style: solid;
+}
+
+.border-orange-600 {
+  border-color: var(--orange-600);
+}
+
+.border-r-orange-200 {
+  border-right-color: var(--orange-200);
+}
+
+.bg-blue-200 {
+  background-color: var(--blue-200);
 }
 
 .bg-blue-400 {
@@ -721,8 +771,8 @@ video {
   background-color: var(--blue-800);
 }
 
-.bg-blue-200 {
-  background-color: var(--blue-200);
+.fill-black {
+  fill: var(--black);
 }
 
 .p-4 {
@@ -739,13 +789,27 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
-.font-bold {
-  font-weight: 700;
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .capitalize {
@@ -754,6 +818,10 @@ video {
 
 .text-black {
   color: var(--black);
+}
+
+.text-orange-200 {
+  color: var(--orange-200);
 }
 
 .opacity-0 {
@@ -788,6 +856,14 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.\[text-shadow\:_0px_4px_5px_\#ffffff\] {
+  text-shadow: 0px 4px 5px #ffffff;
+}
+
 :root {
   --white: #ffffff;
   --black: #0f0606;
@@ -799,16 +875,59 @@ video {
   --blue-800: #105ce5;
 }
 
+.typing-effect {
+  /*width: 26ch;*/
+  animation: flashing-border 2s step-end infinite, printed-text 2s steps(26);
+}
+
+@keyframes flashing-border {
+  0% {
+    border-color: var(--orange-200);
+  }
+
+  50% {
+    border-color: transparent;
+  }
+
+  100% {
+    border-color: var(--orange-200);
+  }
+}
+
+@keyframes printed-text {
+  from {
+    width: 0;
+  }
+}
+
+.slide-right {
+  animation: slideRight 2s ease-in-out;
+}
+
+@keyframes slideRight {
+  0%{
+    transform: translateX(-150%)
+  }
+
+  50%{
+    transform: translateX(8%)
+  }
+
+  65%{
+    transform: translateX(-4%)
+  }
+
+  80%{
+    transform: translateX(4%)
+  }
+
+  100%{
+    transform: translateX(0%)
+  }
+}
+
 .hover\:bg-blue-400:hover {
   background-color: var(--blue-400);
-}
-
-.hover\:text-white:hover {
-  color: var(--white);
-}
-
-.focus\:text-white:focus {
-  color: var(--white);
 }
 
 .active\:text-white:active {
@@ -821,20 +940,74 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.group:hover .group-hover\:fill-white {
-  fill: var(--white);
-}
-
 .group:hover .group-hover\:duration-300 {
   transition-duration: 300ms;
+}
+
+.hocus\:bg-blue-600:hover {
+  background-color: var(--blue-600);
 }
 
 .hocus\:text-white:hover {
   color: var(--white);
 }
 
+.hocus\:shadow-md:hover {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hocus\:shadow-white:hover {
+  --tw-shadow-color: var(--white);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.hocus\:bg-blue-600:focus {
+  background-color: var(--blue-600);
+}
+
 .hocus\:text-white:focus {
   color: var(--white);
+}
+
+.hocus\:shadow-md:focus {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hocus\:shadow-white:focus {
+  --tw-shadow-color: var(--white);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.group:hover .group-hocus\:rotate-45 {
+  --tw-rotate: 45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:hover .group-hocus\:rotate-90 {
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:hover .group-hocus\:fill-white {
+  fill: var(--white);
+}
+
+.group:focus .group-hocus\:rotate-45 {
+  --tw-rotate: 45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:focus .group-hocus\:rotate-90 {
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:focus .group-hocus\:fill-white {
+  fill: var(--white);
 }
 
 @media (min-width: 768px) {

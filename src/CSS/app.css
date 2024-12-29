@@ -2,3 +2,5 @@
 @import './base/variables.css';
 
 @import './components/Link.css';
+
+@import './utilities/Animation.css';

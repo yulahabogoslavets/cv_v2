@@ -2495,13 +2495,55 @@
     }
   });
 
+  // src/JavaScript/controllers/hero_controller.js
+  var hero_controller_default;
+  var init_hero_controller = __esm({
+    "src/JavaScript/controllers/hero_controller.js"() {
+      init_stimulus();
+      hero_controller_default = class extends Controller {
+        static targets = ["heading", "subtitle"];
+        connect() {
+          const options = {
+            root: null,
+            threshold: 0.9
+          };
+          const observer = new IntersectionObserver(this.handleIntersect.bind(this), options);
+          this.headingTargets.forEach((target) => observer.observe(target));
+          this.subtitleTargets.forEach((target) => observer.observe(target));
+        }
+        handleIntersect(entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const target = entry.target;
+              if (this.headingTargets.includes(target)) {
+                target.classList.add("typing-effect");
+              }
+              if (this.subtitleTargets.includes(target)) {
+                target.classList.add("slide-right");
+              }
+            } else {
+              if (this.headingTargets.includes(entry.target)) {
+                entry.target.classList.remove("typing-effect");
+              }
+              if (this.subtitleTargets.includes(entry.target)) {
+                entry.target.classList.remove("slide-right");
+              }
+            }
+          });
+        }
+      };
+    }
+  });
+
   // src/JavaScript/app.js
   var require_app = __commonJS({
     "src/JavaScript/app.js"() {
       init_stimulus();
       init_navbar_controller();
+      init_hero_controller();
       window.Stimulus = Application.start();
       Stimulus.register("navbar", navbar_controller_default);
+      Stimulus.register("hero", hero_controller_default);
     }
   });
   require_app();
