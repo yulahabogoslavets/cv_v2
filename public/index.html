@@ -199,6 +199,198 @@
             </button>
         </header>
 
+        <section id="portfolio" class="bg-orange-600">
+            <div class="container mx-auto py-10" data-controller="filter">
+                <h2
+                    class="motion-safe:slide-right text-center text-2xl font-medium uppercase"
+                >
+                    Portfolio
+                </h2>
+                <div class="mx-auto my-6 flex items-center justify-center">
+                    <button
+                        class="mr-2.5 cursor-pointer p-1 text-base font-bold after:ml-2.5 after:content-['/'] hocus:text-white lg:text-xl"
+                        data-filter-target="all"
+                        data-action="click->filter#filter"
+                    >
+                        All
+                    </button>
+                    <button
+                        class="mr-2.5 cursor-pointer p-1 text-base after:ml-2.5 after:content-['/'] hocus:text-white lg:text-xl"
+                        data-filter-target="js"
+                        data-action="click->filter#filter"
+                    >
+                        Javascript
+                    </button>
+                    <button
+                        class="mr-2.5 cursor-pointer p-1 text-base after:ml-2.5 after:content-['/'] hocus:text-white lg:text-xl"
+                        data-filter-target="react"
+                        data-action="click->filter#filter"
+                    >
+                        React
+                    </button>
+                    <button
+                        class="mr-2.5 cursor-pointer p-1 text-base hocus:text-white lg:text-xl"
+                        data-filter-target="bootstrap"
+                        data-action="click->filter#filter"
+                    >
+                        Bootstrap4
+                    </button>
+                </div>
+
+                <div
+                    class="mx-4 my-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                >
+                    <div
+                        class="box group relative inline-block"
+                        data-filter="js"
+                    >
+                        <div class="h-full w-full">
+                            <img
+                                src="./Image/portfolio/pirol.PNG"
+                                alt="pirol"
+                                class="h-full w-full rounded-xl group-hocus:opacity-40"
+                            />
+                        </div>
+                        <div
+                            class="absolute inset-0 z-10 m-2.5 flex flex-col items-center justify-center p-4 text-center text-white opacity-0 group-hocus:opacity-100"
+                        >
+                            <h4>Pirol</h4>
+                            <p class="text-xl italic text-orange-600">
+                                Javascript
+                            </p>
+                            <div
+                                class="rounded-xl bg-blue-400 p-2.5 hocus:bg-blue-600"
+                            >
+                                <a
+                                    target="_blank"
+                                    class="cursor-pointer text-white hocus:text-black"
+                                    href="https://yulahabogoslavets.github.io/piroll/one_page.html"
+                                    >Go to page</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="box group relative inline-block"
+                        data-filter="js"
+                    >
+                        <div class="h-full w-full">
+                            <img
+                                src="./Image/portfolio/shop.PNG"
+                                alt="shop"
+                                class="h-full w-full rounded-xl group-hocus:opacity-40"
+                            />
+                        </div>
+                        <div
+                            class="absolute inset-0 z-10 m-2.5 flex flex-col items-center justify-center p-4 text-center text-white opacity-0 group-hocus:opacity-100"
+                        >
+                            <h4>Shop</h4>
+                            <p class="text-xl italic text-orange-600">
+                                Javascript
+                            </p>
+                            <div
+                                class="rounded-xl bg-blue-400 p-2.5 hocus:bg-blue-600"
+                            >
+                                <a
+                                    target="_blank"
+                                    class="cursor-pointer text-white hocus:text-black"
+                                    href="https://yulahabogoslavets.github.io/shop/index.html"
+                                    >Go to page</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="box group relative inline-block"
+                        data-filter="react"
+                    >
+                        <div class="h-full w-full">
+                            <img
+                                src="./Image/portfolio/todolist.PNG"
+                                alt="todolist"
+                                class="h-full w-full rounded-xl group-hocus:opacity-40"
+                            />
+                        </div>
+                        <div
+                            class="absolute inset-0 z-10 m-2.5 flex flex-col items-center justify-center p-4 text-center text-white opacity-0 group-hocus:opacity-100"
+                        >
+                            <h4>Todolist</h4>
+                            <p class="text-xl italic text-orange-600">React</p>
+                            <div
+                                class="rounded-xl bg-blue-400 p-2.5 hocus:bg-blue-600"
+                            >
+                                <a
+                                    target="_blank"
+                                    class="cursor-pointer text-white hocus:text-black"
+                                    href="https://yulahabogoslavets.github.io/react-todolist/"
+                                    >Go to page</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="box group relative inline-block"
+                        data-filter="react"
+                    >
+                        <div class="h-full w-full">
+                            <img
+                                src="./Image/portfolio/planner.PNG"
+                                alt="planner"
+                                class="h-full w-full rounded-xl group-hocus:opacity-40"
+                            />
+                        </div>
+                        <div
+                            class="absolute inset-0 z-10 m-2.5 flex flex-col items-center justify-center p-4 text-center text-white opacity-0 group-hocus:opacity-100"
+                        >
+                            <h4>Planer</h4>
+                            <p class="text-xl italic text-orange-600">React</p>
+                            <div
+                                class="rounded-xl bg-blue-400 p-2.5 hocus:bg-blue-600"
+                            >
+                                <a
+                                    target="_blank"
+                                    class="cursor-pointer text-white hocus:text-black"
+                                    href="https://yulahabogoslavets.github.io/app-planer/"
+                                    >Go to page</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="box group relative inline-block"
+                        data-filter="bootstrap"
+                    >
+                        <div class="h-full w-full">
+                            <img
+                                src="./Image/portfolio/suschi.PNG"
+                                alt="sushi"
+                                class="h-full w-full rounded-xl group-hocus:opacity-40"
+                            />
+                        </div>
+                        <div
+                            class="absolute inset-0 z-10 m-2.5 flex flex-col items-center justify-center p-4 text-center text-white opacity-0 group-hocus:opacity-100"
+                        >
+                            <h4>Sushi</h4>
+                            <p class="text-xl italic text-orange-600">
+                                Bootstrap4
+                            </p>
+                            <div
+                                class="rounded-xl bg-blue-400 p-2.5 hocus:bg-blue-600"
+                            >
+                                <a
+                                    target="_blank"
+                                    class="cursor-pointer text-white hocus:text-black"
+                                    href="https://yulahabogoslavets.github.io/suchi-site/"
+                                    >Go to page</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <script type="module" src="app.js"></script>
     </body>
 </html>

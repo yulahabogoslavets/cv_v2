@@ -1,34 +1,67 @@
 .typing-effect {
-  /*width: 26ch;*/
-  animation: flashing-border 2s step-end infinite, printed-text 2s steps(26);
+    /*width: 26ch;*/
+    animation:
+        flashing-border 2s step-end infinite,
+        printed-text 2s steps(26);
 }
 
 @keyframes flashing-border {
-  0% {
-    border-color: var(--orange-200);
-  }
-  50% {
-    border-color: transparent;
-  }
-  100% {
-    border-color: var(--orange-200);
-  }
+    0% {
+        border-color: var(--orange-200);
+    }
+    50% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: var(--orange-200);
+    }
 }
 
 @keyframes printed-text {
-  from {
-    width: 0;
-  }
+    from {
+        width: 0;
+    }
 }
 
 .slide-right {
-  animation: slideRight 2s ease-in-out;
+    animation: slideRight 2s ease-in-out;
 }
 
 @keyframes slideRight {
-  0%{transform: translateX(-150%)}
-  50%{transform: translateX(8%)}
-  65%{transform: translateX(-4%)}
-  80%{transform: translateX(4%)}
-  100%{transform: translateX(0%)}
+    0% {
+        transform: translateX(-150%);
+    }
+    50% {
+        transform: translateX(8%);
+    }
+    65% {
+        transform: translateX(-4%);
+    }
+    80% {
+        transform: translateX(4%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* for portfolio*/
+.box::after,
+.box::before {
+    @apply absolute inset-4 opacity-100 transition-all duration-[0.4s] ease-[ease-out] content-[''];
+}
+.box::before {
+    @apply border-y-2 border-solid border-y-white;
+    transform: scale(0, 1);
+}
+.box::after {
+    @apply border-x-2 border-solid border-x-white;
+    transform: scale(1, 0);
+}
+.box:hover::before {
+    @apply bg-black;
+    transform: scale(1.05, 1);
+}
+.box:hover::after {
+    @apply scale-x-100 scale-y-105;
 }

@@ -2538,15 +2538,58 @@
     }
   });
 
+  // src/JavaScript/controllers/filter_controller.js
+  var filter_controller_default;
+  var init_filter_controller = __esm({
+    "src/JavaScript/controllers/filter_controller.js"() {
+      init_stimulus();
+      filter_controller_default = class extends Controller {
+        static targets = ["all", "js", "react", "bootstrap"];
+        connect() {
+          console.log("Filter controller connected");
+          this.activateDefaultFilter();
+        }
+        filter(event) {
+          const filterType = event.target.dataset.filterTarget;
+          const items = this.element.querySelectorAll("[data-filter]");
+          const filters = this.element.querySelectorAll("[data-filter-target]");
+          filters.forEach((filter) => filter.classList.remove("font-bold"));
+          event.target.classList.add("font-bold");
+          items.forEach((item) => {
+            if (filterType === "all" || item.dataset.filter === filterType) {
+              item.classList.remove("hidden");
+            } else {
+              item.classList.add("hidden");
+            }
+          });
+        }
+        activateDefaultFilter() {
+          const filters = this.element.querySelectorAll("[data-filter-target]");
+          const items = this.element.querySelectorAll("[data-filter]");
+          filters.forEach((filter) => filter.classList.remove("font-bold"));
+          const defaultFilter = this.element.querySelector(
+            '[data-filter-target="all"]'
+          );
+          if (defaultFilter) defaultFilter.classList.add("font-bold");
+          items.forEach((item) => {
+            item.classList.remove("hidden");
+          });
+        }
+      };
+    }
+  });
+
   // src/JavaScript/app.js
   var require_app = __commonJS({
     "src/JavaScript/app.js"() {
       init_stimulus();
       init_navbar_controller();
       init_hero_controller();
+      init_filter_controller();
       window.Stimulus = Application.start();
       Stimulus.register("navbar", navbar_controller_default);
       Stimulus.register("hero", hero_controller_default);
+      Stimulus.register("filter", filter_controller_default);
     }
   });
   require_app();
