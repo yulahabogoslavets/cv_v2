@@ -1,0 +1,70 @@
+.hexagon {
+    aspect-ratio: 1 / cos(30deg);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    /*clip-path: polygon(0% 38%, 15% 20%, 51% 20%, 65% 39%, 29% 75%);*/
+}
+
+/*burst*/
+.burst {
+    background: #04c2c9;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 34px 12px;
+    transform: rotate(20deg);
+    transition: all 1s ease-out;
+}
+.burst::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 80px;
+    background: #04c2c9;
+    transform: rotate(135deg);
+}
+
+.burst:hover {
+    transform: rotate(40deg);
+}
+
+/*heart*/
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    transition: all 1s ease;
+}
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: rebeccapurple;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart:hover {
+    transform: scale(1.2);
+}
+
+@keyframes scale {
+    from {
+        transform: scale(1.5);
+    }
+}
