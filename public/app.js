@@ -2579,6 +2579,70 @@
     }
   });
 
+  // src/JavaScript/controllers/progress_controller.js
+  var progress_controller_default;
+  var init_progress_controller = __esm({
+    "src/JavaScript/controllers/progress_controller.js"() {
+      init_stimulus();
+      progress_controller_default = class extends Controller {
+        static targets = ["item", "bar", "percentage"];
+        connect() {
+          this.observer = new IntersectionObserver(
+            this.handleIntersection.bind(this),
+            {
+              threshold: 0.75
+            }
+          );
+          this.barTargets.forEach((bar) => {
+            this.observer.observe(bar);
+          });
+        }
+        disconnect() {
+          this.observer.disconnect();
+        }
+        handleIntersection(entries, observer) {
+          entries.forEach((entry) => {
+            const bar = entry.target;
+            const percentageText = this.percentageTargets[this.barTargets.indexOf(bar)];
+            const progressValue = parseInt(bar.dataset.value, 10);
+            if (entry.isIntersecting) {
+              this.animateProgressBar(bar, progressValue);
+              this.animatePercentage(percentageText, progressValue);
+            } else {
+              this.resetProgressBar(bar, percentageText);
+            }
+          });
+        }
+        animateProgressBar(bar, targetValue) {
+          let currentWidth = 0;
+          const interval = setInterval(() => {
+            if (currentWidth < targetValue) {
+              currentWidth++;
+              bar.style.width = `${currentWidth}%`;
+            } else {
+              clearInterval(interval);
+            }
+          }, 50);
+        }
+        animatePercentage(percentageText, targetValue) {
+          let currentPercentage = 0;
+          const interval = setInterval(() => {
+            if (currentPercentage < targetValue) {
+              currentPercentage++;
+              percentageText.textContent = `${currentPercentage}%`;
+            } else {
+              clearInterval(interval);
+            }
+          }, 50);
+        }
+        resetProgressBar(bar, percentageText) {
+          bar.style.width = "0%";
+          percentageText.textContent = "0%";
+        }
+      };
+    }
+  });
+
   // src/JavaScript/app.js
   var require_app = __commonJS({
     "src/JavaScript/app.js"() {
@@ -2586,10 +2650,12 @@
       init_navbar_controller();
       init_hero_controller();
       init_filter_controller();
+      init_progress_controller();
       window.Stimulus = Application.start();
       Stimulus.register("navbar", navbar_controller_default);
       Stimulus.register("hero", hero_controller_default);
       Stimulus.register("filter", filter_controller_default);
+      Stimulus.register("progress", progress_controller_default);
     }
   });
   require_app();

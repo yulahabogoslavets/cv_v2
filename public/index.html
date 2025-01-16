@@ -394,12 +394,14 @@
         <section id="about" class="bg-blue-600">
             <div class="container mx-auto py-10">
                 <h2
-                    class="motion-safe:slide-right text-center text-2xl font-medium uppercase"
+                    class="motion-safe:slide-right mb-4 text-center text-2xl font-medium uppercase"
                 >
                     About
                 </h2>
 
-                <div class="flex flex-wrap justify-between">
+                <div
+                    class="flex flex-wrap justify-between gap-4 md:flex-nowrap"
+                >
                     <div class="flex flex-col align-baseline">
                         <div class="group mb-6 flex items-center gap-4">
                             <div
@@ -434,6 +436,191 @@
                                 <h4 class="text-xl">Love it</h4>
                                 <p>I like to bring the layout to life</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="w-1/2" data-controller="progress">
+                        <!-- Progress bar 1 -->
+                        <div
+                            data-progress-target="item"
+                            class="mb-1 flex items-center justify-between gap-4"
+                        >
+                            <span class="text-base font-medium text-black"
+                                >HTML5</span
+                            >
+                            <span
+                                data-progress-target="percentage"
+                                class="text-sm font-medium text-black"
+                                >100%</span
+                            >
+                        </div>
+
+                        <div
+                            class="mb-4 h-2.5 w-full rounded-full bg-black shadow shadow-white duration-300 ease-in-out hover:scale-105"
+                        >
+                            <div
+                                data-progress-target="bar"
+                                data-value="100"
+                                class="h-2.5 rounded-full bg-gradient-to-br from-orange-600 to-blue-800"
+                                style="width: 0%"
+                            ></div>
+                        </div>
+
+                        <!-- Progress bar 2 -->
+                        <div
+                            data-progress-target="item"
+                            class="mb-1 flex items-center justify-between gap-4"
+                        >
+                            <span class="text-base font-medium text-black"
+                                >CSS3/Sass</span
+                            >
+
+                            <span
+                                data-progress-target="percentage"
+                                class="text-sm font-medium text-black"
+                                >100%</span
+                            >
+                        </div>
+
+                        <div
+                            class="mb-4 h-2.5 w-full rounded-full bg-black shadow shadow-white duration-300 ease-in-out hover:scale-105"
+                        >
+                            <div
+                                data-progress-target="bar"
+                                data-value="100"
+                                class="h-2.5 rounded-full bg-gradient-to-bl from-orange-600 to-blue-800"
+                                style="width: 0%"
+                            ></div>
+                        </div>
+
+                        <!-- Progress bar 3 -->
+                        <div
+                            data-progress-target="item"
+                            class="mb-1 flex items-center justify-between gap-4"
+                        >
+                            <span class="text-base font-medium text-black"
+                                >Javascript</span
+                            >
+
+                            <span
+                                data-progress-target="percentage"
+                                class="text-sm font-medium text-black"
+                                >90%</span
+                            >
+                        </div>
+                        <div
+                            class="mb-4 h-2.5 w-full rounded-full bg-black shadow shadow-white duration-300 ease-in-out hover:scale-105"
+                        >
+                            <div
+                                data-progress-target="bar"
+                                data-value="90"
+                                class="h-2.5 rounded-full bg-gradient-to-tr from-orange-600 to-blue-800"
+                                style="width: 0%"
+                            ></div>
+                        </div>
+
+                        <!-- Progress bar 4 -->
+                        <div
+                            data-progress-target="item"
+                            class="mb-1 flex items-center justify-between gap-4"
+                        >
+                            <span class="text-base font-medium text-black"
+                                >TypeScript</span
+                            >
+
+                            <span
+                                data-progress-target="percentage"
+                                class="text-sm font-medium text-black"
+                                >80%</span
+                            >
+                        </div>
+
+                        <div
+                            class="mb-4 h-2.5 w-full rounded-full bg-black shadow shadow-white duration-300 ease-in-out hover:scale-105"
+                        >
+                            <div
+                                data-progress-target="bar"
+                                data-value="80"
+                                class="h-2.5 rounded-full bg-gradient-to-tl from-orange-600 to-blue-800"
+                                style="width: 0%"
+                            ></div>
+                        </div>
+
+                        <!-- Progress bar 5 -->
+                        <div
+                            data-progress-target="item"
+                            class="mb-1 flex items-center justify-between gap-4"
+                        >
+                            <span class="text-base font-medium text-black"
+                                >Svelte</span
+                            >
+
+                            <span
+                                data-progress-target="percentage"
+                                class="text-sm font-medium text-black"
+                                >50%</span
+                            >
+                        </div>
+                        <div
+                            class="mb-4 h-2.5 w-full rounded-full bg-black shadow shadow-white duration-300 ease-in-out hover:scale-105"
+                        >
+                            <div
+                                data-progress-target="bar"
+                                data-value="50"
+                                class="h-2.5 rounded-full bg-gradient-to-br from-blue-600 to-orange-600"
+                                style="width: 0%"
+                            ></div>
+                        </div>
+
+                        <!-- Progress bar 6 -->
+                        <div
+                            data-progress-target="item"
+                            class="mb-1 flex items-center justify-between gap-4"
+                        >
+                            <span class="text-base font-medium text-black"
+                                >Bootstrap</span
+                            >
+
+                            <span
+                                data-progress-target="percentage"
+                                class="text-sm font-medium text-black"
+                                >90%</span
+                            >
+                        </div>
+                        <div
+                            class="mb-4 h-2.5 w-full rounded-full bg-black shadow shadow-white duration-300 ease-in-out hover:scale-105"
+                        >
+                            <div
+                                data-progress-target="bar"
+                                data-value="90"
+                                class="h-2.5 rounded-full bg-gradient-to-bl from-blue-600 to-orange-600"
+                                style="width: 0%"
+                            ></div>
+                        </div>
+
+                        <!-- Progress bar 7 -->
+                        <div
+                            data-progress-target="item"
+                            class="mb-1 flex items-center justify-between gap-4"
+                        >
+                            <span class="text-base font-medium text-black"
+                                >Tailwind</span
+                            >
+
+                            <span
+                                data-progress-target="percentage"
+                                class="text-sm font-medium text-black"
+                                >90%</span
+                            >
+                        </div>
+                        <div
+                            class="h-2.5 w-full rounded-full bg-black shadow shadow-white duration-300 ease-in-out hover:scale-105"
+                        >
+                            <div
+                                data-progress-target="bar"
+                                data-value="90"
+                                class="h-2.5 rounded-full bg-gradient-to-tr from-blue-600 to-orange-600"
+                                style="width: 0%"
+                            ></div>
                         </div>
                     </div>
                 </div>
