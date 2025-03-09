@@ -229,6 +229,13 @@
                         React
                     </button>
                     <button
+                        class="mr-2.5 cursor-pointer p-1 text-base after:ml-2.5 after:content-['/'] hocus:text-white lg:text-xl"
+                        data-filter-target="svelte"
+                        data-action="click->filter#filter"
+                    >
+                        Svelte
+                    </button>
+                    <button
                         class="mr-2.5 cursor-pointer p-1 text-base hocus:text-white lg:text-xl"
                         data-filter-target="bootstrap"
                         data-action="click->filter#filter"
@@ -352,6 +359,34 @@
                                     target="_blank"
                                     class="cursor-pointer text-white hocus:text-black"
                                     href="https://yulahabogoslavets.github.io/app-planer/"
+                                    >Go to page</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="box group relative inline-block"
+                        data-filter="svelte"
+                    >
+                        <div class="h-full w-full">
+                            <img
+                                src="./Image/portfolio/shop-svelte.png"
+                                alt="Shop  API Svelte"
+                                class="h-full w-full rounded-xl group-hocus:opacity-40"
+                            />
+                        </div>
+                        <div
+                            class="absolute inset-0 z-10 m-2.5 flex flex-col items-center justify-center p-4 text-center text-white opacity-0 group-hocus:opacity-100"
+                        >
+                            <h4>Shop: API</h4>
+                            <p class="text-xl italic text-orange-600">Svelte</p>
+                            <div
+                                class="rounded-xl bg-blue-400 p-2.5 hocus:bg-blue-600"
+                            >
+                                <a
+                                    target="_blank"
+                                    class="cursor-pointer text-white hocus:text-black"
+                                    href="https://shop-svelte-yulahabogoslavets-projects.vercel.app/"
                                     >Go to page</a
                                 >
                             </div>
