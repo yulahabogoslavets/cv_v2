@@ -2466,9 +2466,28 @@
     "src/JavaScript/controllers/navbar_controller.js"() {
       init_stimulus();
       navbar_controller_default = class extends Controller {
-        static targets = ["menuItems", "menu", "dropdownMenu", "hamburgerIcon", "closeIcon"];
+        static targets = [
+          "menuItems",
+          "menu",
+          "dropdownMenu",
+          "hamburgerIcon",
+          "closeIcon"
+        ];
         connect() {
           this.isMenuVisible = false;
+          this.sections = document.querySelectorAll("section");
+          this.menuItems = Array.from(this.menuItemsTarget.querySelectorAll("a"));
+          this.observer = new IntersectionObserver(
+            this.handleIntersection.bind(this),
+            {
+              root: null,
+              threshold: 0.3,
+              rootMargin: "0px 0px -50% 0px"
+            }
+          );
+          this.sections.forEach((section) => {
+            this.observer.observe(section);
+          });
         }
         toggleMenu() {
           this.isMenuVisible = !this.isMenuVisible;
@@ -2477,7 +2496,10 @@
             this.dropdownMenuTarget.classList.add("opacity-0");
             setTimeout(() => {
               this.dropdownMenuTarget.classList.remove("opacity-0");
-              this.dropdownMenuTarget.classList.add("opacity-100", "scale-100");
+              this.dropdownMenuTarget.classList.add(
+                "opacity-100",
+                "scale-100"
+              );
             }, 10);
             this.hamburgerIconTarget.classList.add("hidden");
             this.closeIconTarget.classList.remove("hidden");
@@ -2490,6 +2512,27 @@
             this.hamburgerIconTarget.classList.remove("hidden");
             this.closeIconTarget.classList.add("hidden");
           }
+        }
+        handleIntersection(entries, observer) {
+          let activeLink = null;
+          entries.forEach((entry) => {
+            const sectionId = entry.target.id;
+            const correspondingLink = this.menuItems.find(
+              (item) => item.getAttribute("href").substring(1) === sectionId
+            );
+            if (entry.isIntersecting) {
+              activeLink = correspondingLink;
+            }
+          });
+          this.menuItems.forEach((item) => {
+            item.classList.remove("text-white", "after:scale-x-100");
+          });
+          if (activeLink) {
+            activeLink.classList.add("text-white", "after:scale-x-100");
+          }
+        }
+        disconnect() {
+          this.observer.disconnect();
         }
       };
     }
