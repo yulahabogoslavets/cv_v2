@@ -2643,6 +2643,94 @@
     }
   });
 
+  // src/JavaScript/controllers/stage_controller.js
+  var stage_controller_default;
+  var init_stage_controller = __esm({
+    "src/JavaScript/controllers/stage_controller.js"() {
+      init_stimulus();
+      stage_controller_default = class extends Controller {
+        static targets = ["stageButtonScroll"];
+        scroll(event) {
+          event.preventDefault();
+          const nextSection = document.querySelector("#portfolio");
+          nextSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      };
+    }
+  });
+
+  // src/JavaScript/controllers/scroll_controller.js
+  var scroll_controller_default;
+  var init_scroll_controller = __esm({
+    "src/JavaScript/controllers/scroll_controller.js"() {
+      init_stimulus();
+      scroll_controller_default = class extends Controller {
+        static targets = ["section"];
+        initialize() {
+          this.lastScrollY = window.scrollY;
+          this.observer = new IntersectionObserver(this.handleScroll.bind(this), {
+            threshold: [0, 0.2, 0.5, 0.8, 1]
+          });
+          this.sectionTargets.forEach((section) => {
+            section.classList.add(section.dataset.scrollBg || "bg-white");
+            this.observer.observe(section);
+          });
+        }
+        disconnect() {
+          this.sectionTargets.forEach(
+            (section) => this.observer.unobserve(section)
+          );
+        }
+        handleScroll(entries) {
+          const currentScrollY = window.scrollY;
+          const scrollingDown = currentScrollY > this.lastScrollY;
+          this.lastScrollY = currentScrollY;
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const section = entry.target;
+              const rect = section.getBoundingClientRect();
+              const middleOfSection = rect.top + rect.height / 2;
+              const middleOfViewport = window.innerHeight / 2;
+              const progress = Math.min(
+                1,
+                Math.max(
+                  0,
+                  1 - Math.abs(middleOfViewport - middleOfSection) / (rect.height / 2)
+                )
+              );
+              if (scrollingDown) {
+                this.applyTailwindGradient(
+                  section,
+                  progress,
+                  section.dataset.scrollBg,
+                  "bg-white"
+                );
+              } else {
+                this.applyTailwindGradient(
+                  section,
+                  progress,
+                  "bg-white",
+                  section.dataset.scrollBg
+                );
+              }
+            }
+          });
+        }
+        applyTailwindGradient(element, progress, fromClass, toClass) {
+          element.classList.remove(fromClass, toClass);
+          if (progress < 0.5) {
+            element.classList.add(fromClass);
+          } else {
+            element.classList.add(toClass);
+          }
+        }
+      };
+    }
+  });
+
   // src/JavaScript/app.js
   var require_app = __commonJS({
     "src/JavaScript/app.js"() {
@@ -2651,11 +2739,15 @@
       init_hero_controller();
       init_filter_controller();
       init_progress_controller();
+      init_stage_controller();
+      init_scroll_controller();
       window.Stimulus = Application.start();
       Stimulus.register("navbar", navbar_controller_default);
       Stimulus.register("hero", hero_controller_default);
       Stimulus.register("filter", filter_controller_default);
       Stimulus.register("progress", progress_controller_default);
+      Stimulus.register("stage", stage_controller_default);
+      Stimulus.register("scroll", scroll_controller_default);
     }
   });
   require_app();
